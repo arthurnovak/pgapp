@@ -96,7 +96,7 @@ middle_man_transaction(Pool, Fun, Timeout) ->
     end.
 
 start_link(Args) ->
-    gen_server:start_link(?MODULE, Args, []).
+    gen_server:start_link(?MODULE, Args, [{spawn_opt, [{fullsweep_after, 0}]}]).
 
 init(Args) ->
     process_flag(trap_exit, true),
